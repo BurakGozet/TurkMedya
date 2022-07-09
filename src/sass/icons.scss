@@ -1,0 +1,108 @@
+@font-face {
+	font-family: ficon;
+	src: url(../font/ficon.eot?v=1.0.1);
+	src: url(../font/ficon.eot??v=1.0.1#iefix) format("eot"),
+		url(../font/ficon.woff2?v=1.0.1) format("woff2"),
+		url(../font/ficon.woff?v=1.0.1) format("woff"),
+		url(../font/ficon.ttf?v=1.0.1) format("truetype"),
+		url(../font/ficon.svg?v=1.0.1#ficon) format("svg");
+		font-style: normal;
+		font-display: swap;
+		font-weight: 400;
+	}
+
+@mixin ficon-styles {
+	font-family: ficon!important;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	speak: none;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.ficon {
+	@include ficon-styles;
+}
+
+@function ficon-char($filename) {
+	$char: "";
+
+	@if $filename == abf {
+		$char: "\EA01";
+	}
+	@if $filename == facebook {
+		$char: "\EA02";
+	}
+	@if $filename == gallery {
+		$char: "\EA03";
+	}
+	@if $filename == instagram {
+		$char: "\EA04";
+	}
+	@if $filename == live {
+		$char: "\EA05";
+	}
+	@if $filename == night {
+		$char: "\EA06";
+	}
+	@if $filename == search {
+		$char: "\EA07";
+	}
+	@if $filename == sun {
+		$char: "\EA08";
+	}
+	@if $filename == twitter {
+		$char: "\EA09";
+	}
+	@if $filename == videogallery {
+		$char: "\EA0A";
+	}
+	@if $filename == youtube {
+		$char: "\EA0B";
+	}
+
+	@return $char;
+}
+
+@mixin ficon($filename, $insert: before) {
+	&:#{$insert} {
+		content: ficon-char($filename);
+	}
+}
+
+.ficon-abf {
+	@include ficon(abf);
+}
+.ficon-facebook {
+	@include ficon(facebook);
+}
+.ficon-gallery {
+	@include ficon(gallery);
+}
+.ficon-instagram {
+	@include ficon(instagram);
+}
+.ficon-live {
+	@include ficon(live);
+}
+.ficon-night {
+	@include ficon(night);
+}
+.ficon-search {
+	@include ficon(search);
+}
+.ficon-sun {
+	@include ficon(sun);
+}
+.ficon-twitter {
+	@include ficon(twitter);
+}
+.ficon-videogallery {
+	@include ficon(videogallery);
+}
+.ficon-youtube {
+	@include ficon(youtube);
+}

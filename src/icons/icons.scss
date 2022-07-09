@@ -1,0 +1,49 @@
+@font-face {
+	font-family: <%= fontName %>;
+	src: url(<%= fontPath %><%= fontName %>.eot<%= cacheBuster %>);
+	src: url(<%= fontPath %><%= fontName %>.eot?<%= cacheBuster %>#iefix) format("eot"),
+		url(<%= fontPath %><%= fontName %>.woff2<%= cacheBuster %>) format("woff2"),
+		url(<%= fontPath %><%= fontName %>.woff<%= cacheBuster %>) format("woff"),
+		url(<%= fontPath %><%= fontName %>.ttf<%= cacheBuster %>) format("truetype"),
+		url(<%= fontPath %><%= fontName %>.svg<%= cacheBuster %>#<%= fontName %>) format("svg");
+		font-style: normal;
+		font-display: swap;
+		font-weight: 400;
+	}
+
+@mixin <%= className%>-styles {
+	font-family: <%= fontName %>!important;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	speak: none;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.<%= className%> {
+	@include <%= className%>-styles;
+}
+
+@function <%= className%>-char($filename) {
+	$char: "";
+<% _.each(glyphs, function(glyph) { %>
+	@if $filename == <%= glyph.name %> {
+		$char: "\<%= glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() %>";
+	}<% }); %>
+
+	@return $char;
+}
+
+@mixin <%= className%>($filename, $insert: before) {
+	&:#{$insert} {
+		content: <%= className%>-char($filename);
+	}
+}
+
+<% _.each(glyphs, function(glyph) { %>.<%= className%>-<%= glyph.name %> {
+	@include <%= className%>(<%= glyph.name ? glyph.name : glyph.name %>);
+}
+<% }); %>

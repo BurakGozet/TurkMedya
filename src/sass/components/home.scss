@@ -1,0 +1,116 @@
+.homepage {
+    padding-bottom: 100px;
+}
+
+.breaking-news {
+    background: linear-gradient(180deg, #f40000 0, #b70000 100%);
+    padding: 8px 0px;
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+    a.breaking-btn {
+        color: $main-text-color;
+        font-size: 16px;
+        font-weight: 700;
+        border-right: 1px solid $main-text-color;
+        line-height: 16px;
+        padding-right: 20px;
+        margin-right: 20px;
+    }
+}
+.breaking-items {
+    display: flex;
+    justify-content: space-between;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 5px;
+    .breaking-item {
+        display: flex;
+        align-items: center;
+        color: $main-text-color;
+        margin-right: 20px;
+        a {
+            color: inherit;
+        }
+        span {
+            display: inline-block;
+            background: #fff100;
+            font-size: 10px;
+            color: #000;
+            font-weight: 700;
+            line-height: 18px;
+            padding: 0px 5px;
+            margin-right: 5px;
+        }
+    }
+    .breaking-description {
+        display: inline-block;
+        font-size: 13px;
+    }
+}
+
+.home-topnews {
+    margin-top: 40px;
+    overflow: hidden;
+}
+.topnews-image-area {
+    h2 {
+        display: block;
+        width: 40%;
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        margin: 0px;
+        color: $main-text-color;
+        font-size: 40px;
+        line-height: 50px;
+    }
+}
+.topnews-pagination {
+    display: flex;
+    background: #000;
+}
+.topnews-pageitem {
+    flex: 1 0;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: $main-text-color;
+    border-right: 1px solid #303030;
+    position: relative;
+    &.active::before {
+        content: "";
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border-bottom: 4px solid #e60000;
+    }
+    img {
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+    h5 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        height: 53px;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 17px;
+    }
+}
+
+.darkmode {
+    .homepage {
+        background: $dark-bg-color-odd;
+    }
+}

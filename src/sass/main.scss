@@ -1,0 +1,31 @@
+@import "normalize";
+@import "fonts";
+@import "color";
+@import "sprite";
+@import "icons";
+
+@import "plugins/swiper";
+
+body {
+    background: $main-bg-color;
+    font-family: Poppins, Segoe UI, sans-serif;
+}
+
+body.darkmode {
+    background: $dark-bg-color;
+}
+
+a{
+    text-decoration: none;
+    color:inherit;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px 10px;
+    overflow: hidden;
+}
+
+@import "components/header";
+@import "components/home";

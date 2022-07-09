@@ -1,0 +1,27 @@
+
+@font-face {
+    font-family: Poppins;
+    font-weight: 400;
+    src: url(../font/Poppins-Regular.woff2) format("woff2"), url(../font/Poppins-Regular.ttf) format("truetype"),
+        url(../font/Poppins-Regular.woff) format("woff"), url(../font/Poppins-Regular.svg#Poppins) format("svg");
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Poppins;
+    font-weight: 500;
+    src: url(../font/Poppins-Medium.woff2) format("woff2"), url(../font/Poppins-Medium.ttf) format("truetype"),
+        url(../font/Poppins-Medium.woff) format("woff"), url(../font/Poppins-Medium.svg#Poppins) format("svg");
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Poppins;
+    font-weight: 700;
+    src: url(../font/Poppins-Bold.woff2) format("woff2"), url(../font/Poppins-Bold.ttf) format("truetype"),
+        url(../font/Poppins-Bold.woff) format("woff"), url(../font/Poppins-Bold.svg#Poppins) format("svg");
+    font-style: normal;
+    font-display: swap;
+}

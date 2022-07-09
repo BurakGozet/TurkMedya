@@ -1,0 +1,112 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$appstore-name: 'appstore';
+$appstore-x: 0px;
+$appstore-y: 69px;
+$appstore-offset-x: 0px;
+$appstore-offset-y: -69px;
+$appstore-width: 124px;
+$appstore-height: 37px;
+$appstore-total-width: 193px;
+$appstore-total-height: 143px;
+$appstore-image: '../images/sprite.png';
+$appstore: (0px, 69px, 0px, -69px, 124px, 37px, 193px, 143px, '../images/sprite.png', 'appstore', );
+$logo-name: 'logo';
+$logo-x: 0px;
+$logo-y: 0px;
+$logo-offset-x: 0px;
+$logo-offset-y: 0px;
+$logo-width: 193px;
+$logo-height: 69px;
+$logo-total-width: 193px;
+$logo-total-height: 143px;
+$logo-image: '../images/sprite.png';
+$logo: (0px, 0px, 0px, 0px, 193px, 69px, 193px, 143px, '../images/sprite.png', 'logo', );
+$playstore-name: 'playstore';
+$playstore-x: 0px;
+$playstore-y: 106px;
+$playstore-offset-x: 0px;
+$playstore-offset-y: -106px;
+$playstore-width: 124px;
+$playstore-height: 37px;
+$playstore-total-width: 193px;
+$playstore-total-height: 143px;
+$playstore-image: '../images/sprite.png';
+$playstore: (0px, 106px, 0px, -106px, 124px, 37px, 193px, 143px, '../images/sprite.png', 'playstore', );
+$spritesheet-width: 193px;
+$spritesheet-height: 143px;
+$spritesheet-image: '../images/sprite.png';
+$spritesheet-sprites: ($appstore, $logo, $playstore, );
+$spritesheet: (193px, 143px, '../images/sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

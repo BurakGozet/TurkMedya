@@ -1,0 +1,149 @@
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0px;
+}
+
+.weather-container,
+.time-container {
+    font-size: 13px;
+    line-height: 1;
+    flex: 1 0;
+    .weather-info span,
+    .time-info span {
+        font-weight: bold;
+    }
+    i {
+        font-size: 10px;
+    }
+}
+
+.time-container .time-info span {
+    width: 50px;
+    display: inline-block;
+}
+
+.time-container {
+    text-align: right;
+    position: relative;
+}
+.change-theme {
+    user-select: none;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: -25px;
+    padding: 5px 10px;
+    border-radius: 30px;
+    font-size: 10px;
+    line-height: 10px;
+    background: #000;
+    color: $main-text-color;
+    display: flex;
+    align-content: center;
+    .ficon {
+        margin-right: 4px;
+    }
+    .ficon-sun {
+        font-size: 15px;
+        line-height: 6px;
+    }
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex: 1 0;
+    .date-info {
+        margin-top: 5px;
+        font-size: 10px;
+    }
+    .main-logo {
+        @include sprite($logo);
+    }
+}
+
+nav {
+    .nav-items {
+        display: flex;
+        justify-content: space-between;
+        a.nav-item {
+            line-height: 40px;
+            font-weight: 700;
+            font-size: 15px;
+        }
+    }
+}
+
+.header-bottom-bar {
+    background: #000;
+    color: $main-text-color;
+    font-size: 13px;
+    padding: 12px 0px;
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.header-exchange-items {
+    display: flex;
+    .exchange-item {
+        margin-right: 20px;
+        span {
+            font-weight: 700;
+        }
+    }
+}
+.header-buttons {
+    display: flex;
+}
+
+.header-media {
+    display: flex;
+    a.header-btn {
+        margin-right: 15px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+    }
+    .ficon {
+        margin-right: 3px;
+        margin-bottom: 2px;
+    }
+}
+
+.social-items {
+    display: flex;
+    margin-right: 20px;
+    .social-item {
+        background: #e0e0e0;
+        width: 22px;
+        height: 22px;
+        font-size: 9px;
+        line-height: 21px;
+        color: black;
+        border-radius: 30px;
+        margin-right: 3px;
+        text-align: center;
+    }
+}
+
+.search-btn {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    user-select: none;
+    cursor: pointer;
+}
+body.darkmode {
+    .change-theme {
+        background: $main-text-color;
+        color: $dark-text-color;
+    }
+    .header-top,
+    .nav-items {
+        color: $main-text-color;
+    }
+}
